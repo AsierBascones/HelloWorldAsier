@@ -1,53 +1,41 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ColorWorld : MonoBehaviour
+public class ColorTheWorld : MonoBehaviour
 {
-    public Color myColor = Color.white;
-    public Object[] allTheGameObjects;
-    public bool findByTag;
-    public string choosenTag;
+    public Color theColor;
+    Object[] gameObjects;
+    [SerializeField] private bool findByTag;
+    [SerializeField] private string choosenTag;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (findByTag)
         {
-            allTheGameObjects = GameObject.FindGameObjectsWithTag(choosenTag);
+            if (choosenTag.Equals("blue"))
+            {
+                theColor = Color.blue;
+            }
+            else
+            {
+                theColor = Color.red;
+            }
+            gameObjects = GameObject.FindGameObjectsWithTag(choosenTag);
         }
         else
         {
-            allTheGameObjects = GameObject.FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None);
+            gameObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
         }
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (Object obj in allTheGameObjects)
+        foreach (var gameObject in gameObjects)
         {
-            // 1. Obtenemos el componente MeshRenderer sin importar qué guardamos en el array
-            MeshRenderer mesh = null;
-
-            if (obj is GameObject go)
-                mesh = go.GetComponent<MeshRenderer>();
-            else if (obj is MeshRenderer mr)
-                mesh = mr;
-
-            // 2. Si logramos encontrar un mesh, aplicamos la lógica de color
-            if (mesh != null)
+            if (gameObject.GetComponent<MeshRenderer>())
             {
-                if (findByTag)
-                {
-                    if (mesh.CompareTag("Blue"))
-                        mesh.material.color = Color.blue;
-                    else if (mesh.CompareTag("Red"))
-                        mesh.material.color = Color.red;
-                }
-                else
-                {
-                    mesh.material.color = myColor;
-                }
+                gameObject.GetComponent<MeshRenderer>().material.color = theColor;
             }
         }
     }
