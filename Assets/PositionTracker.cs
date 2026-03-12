@@ -14,7 +14,7 @@ public class PositionTracker : MonoBehaviour
     {
         PositionLogTrace();
     }
-
+    
     private void PositionLogTrace()
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
