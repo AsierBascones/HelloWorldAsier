@@ -1065,8 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e9c1bd233818b4ca37b6564d470f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorWorld
-  myColor: {r: 1, g: 1, b: 1, a: 1}
-  allTheGameObjects: []
+  theColor: {r: 0, g: 0, b: 0, a: 0}
   findByTag: 0
   choosenTag: 
 --- !u!4 &665209339
@@ -1242,6 +1241,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 149d27a64ab464f4b8fa0c2a83b3f49c, type: 3}
   m_PrefabInstance: {fileID: 1777168034}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &761681828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761681825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f80b5a1285583d47b6df548900a256c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveObject
+  speed: 5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,6 +1864,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 149d27a64ab464f4b8fa0c2a83b3f49c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 761681826}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 149d27a64ab464f4b8fa0c2a83b3f49c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 761681828}
   m_SourcePrefab: {fileID: 100100000, guid: 149d27a64ab464f4b8fa0c2a83b3f49c, type: 3}
 --- !u!1 &1835083087
 GameObject:
